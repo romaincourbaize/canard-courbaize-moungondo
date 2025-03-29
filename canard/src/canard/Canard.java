@@ -1,6 +1,11 @@
 package canard;
 
-public abstract class Canard {
+import java.util.ArrayList;
+import java.util.List;
+
+import canard.etat.EffetEtat;
+
+public abstract class Canard implements CapaciteSpeciale {
 
 	private String nom;
 	
@@ -10,7 +15,7 @@ public abstract class Canard {
 	
 	private TypeCanard type;
 	
-	private boolean gele;
+	private List<EffetEtat> effets;
 	
 	public Canard(String pNom, double pPointsDeVie, int pPointsAttaque, TypeCanard pType) {
 		super();
@@ -18,19 +23,49 @@ public abstract class Canard {
 		pointsDeVie = pPointsDeVie;
 		pointsAttaque = pPointsAttaque;
 		type = pType;
-		gele = false;
+		effets = new ArrayList<>();
 	}
 
 	public void attaquer(Canard pAutreCanard) {
 		pAutreCanard.subirDegats(TypeCanard.getMultiplicateur(type, pAutreCanard.getType()) * pointsAttaque);
 	}
 	
+	public boolean appliquerEffets() {
+		boolean peutJouer = true;
+		for (int i = 0 ; i < effets.size() ; i++) {
+			peutJouer &= effets.get(i).appliquerEffets(this);
+			effets.get(i).decrementerDuree();
+			if (!effets.get(i).estActif()) {
+				effets.remove(effets.get(i));
+				i--;
+			}
+		}
+		return peutJouer;
+	}
+	
+	public String afficherEffets() {
+		String s = "";
+		for (EffetEtat effet : effets) {
+			s += effet;
+		}
+		return s;
+	}
+	
 	public void subirDegats(double pDegats) {
 		pointsDeVie -= pDegats;
 	}
 	
-	public abstract void attaquerSpeciale(Canard pAutreCanard);
+	public void ajouterEffet(EffetEtat pEffet) {
+		effets.add(pEffet);
+	}
 	
+	public abstract String getCaracteristiques();
+	
+	@Override
+	public String toString() {
+		return "Nom : " + getNom() + "\n" + "Nombre de points de vie : " + getPointsDeVie();
+	}
+
 	public boolean estKO() {
 		return pointsDeVie <= 0;
 	}
@@ -53,13 +88,5 @@ public abstract class Canard {
 
 	void setPointsDeVie(double pPointsDeVie) {
 		pointsDeVie = pPointsDeVie;
-	}
-
-	boolean isGele() {
-		return gele;
-	}
-
-	void setGele(boolean pGele) {
-		gele = pGele;
 	}
 }

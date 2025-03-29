@@ -1,6 +1,8 @@
 package canard;
 
-public class CanardGlace extends Canard {
+import canard.etat.EtatGele;
+
+public class CanardGlace extends Canard implements CapaciteSpeciale {
 
 	public CanardGlace(String pNom, double pPointsDeVie, int pPointsAttaque) {
 		super(pNom, pPointsDeVie, pPointsAttaque, TypeCanard.GLACE);
@@ -8,6 +10,15 @@ public class CanardGlace extends Canard {
 
 	@Override
 	public void attaquerSpeciale(Canard pAutreCanard) {
-		pAutreCanard.setGele(true);
+		pAutreCanard.ajouterEffet(new EtatGele());
+	}
+
+	@Override
+	public String getCaracteristiques() {
+		String s = "Nom : " + getNom() + "\n";
+		s += "Nombre de points de vie : " + getPointsDeVie() + "\n";
+		s += "Nombre de dégat : " + getPointsAttaque() + "\n";
+		s += "Attaque spéciale : Gèle l'adversaire";
+		return s;
 	}
 }

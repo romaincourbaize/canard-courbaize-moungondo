@@ -1,14 +1,27 @@
 package canard;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public enum TypeCanard {
 	
-	EAU,
+	EAU("Eau"),
 	
-	FEU,
+	FEU("Feu"),
 	
-	GLACE,
+	GLACE("Glace"),
 	
-	VENT;
+	VENT("Vent");
+	
+	public static final Map<String, TypeCanard> NOMS = new HashMap();
+	
+	static {
+		for (TypeCanard type : values()) {
+			NOMS.put(type.nom, type);
+		}
+	}
 	
 	private static final double NEUTRE = 1;
 	
@@ -16,6 +29,16 @@ public enum TypeCanard {
 	
 	private static final double FAIBLE = 0.5;
 	
+	private String nom;
+	
+	private TypeCanard(String pNom) {
+		nom = pNom;
+	}
+	
+	public String getNom() {
+		return nom;
+	}
+
 	public static double getMultiplicateur(TypeCanard attaquant, TypeCanard cible) {
 		
 		if (attaquant == cible) {
@@ -42,5 +65,15 @@ public enum TypeCanard {
 		default:
 			return 1;
 		}
+	}
+	
+	public static TypeCanard fromString(String pNom) {
+
+		TypeCanard typeCanard = NOMS.get(pNom);
+		
+		if (typeCanard != null) {
+			return typeCanard;
+		}
+		throw new IllegalArgumentException(pNom + " ne fait pas parti de l'énumération");
 	}
 }
