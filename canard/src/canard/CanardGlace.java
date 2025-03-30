@@ -5,7 +5,7 @@ import canard.etat.EtatGele;
 public class CanardGlace extends Canard implements CapaciteSpeciale {
 
 	public CanardGlace(String pNom, double pPointsDeVie, int pPointsAttaque) {
-		super(pNom, pPointsDeVie, pPointsAttaque, TypeCanard.GLACE);
+		super(pNom, pPointsDeVie, pPointsAttaque, TypeCanard.GLACE, 50);
 	}
 
 	@Override

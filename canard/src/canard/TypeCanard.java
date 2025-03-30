@@ -15,14 +15,6 @@ public enum TypeCanard {
 	
 	VENT("Vent");
 	
-	public static final Map<String, TypeCanard> NOMS = new HashMap();
-	
-	static {
-		for (TypeCanard type : values()) {
-			NOMS.put(type.nom, type);
-		}
-	}
-	
 	private static final double NEUTRE = 1;
 	
 	private static final double FORT = 1.5;
@@ -65,15 +57,5 @@ public enum TypeCanard {
 		default:
 			return 1;
 		}
-	}
-	
-	public static TypeCanard fromString(String pNom) {
-
-		TypeCanard typeCanard = NOMS.get(pNom);
-		
-		if (typeCanard != null) {
-			return typeCanard;
-		}
-		throw new IllegalArgumentException(pNom + " ne fait pas parti de l'énumération");
 	}
 }

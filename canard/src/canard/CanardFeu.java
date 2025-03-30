@@ -5,12 +5,12 @@ public class CanardFeu extends Canard implements CapaciteSpeciale {
 	private static final double DEGATS_SUPPLEMENTAIRE_SPECIALE = 10;
 
 	public CanardFeu(String pNom, double pPointsDeVie, int pPointsAttaque) {
-		super(pNom, pPointsDeVie, pPointsAttaque, TypeCanard.FEU);
+		super(pNom, pPointsDeVie, pPointsAttaque, TypeCanard.FEU, 50);
 	}
 
 	@Override
 	public void attaquerSpeciale(Canard pAutreCanard) {
-		attaquer(pAutreCanard);
+		attaquer(pAutreCanard, TypeAttaque.NORMALE);
 		pAutreCanard.subirDegats(DEGATS_SUPPLEMENTAIRE_SPECIALE);
 	}
 

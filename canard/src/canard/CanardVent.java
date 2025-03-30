@@ -5,13 +5,13 @@ public class CanardVent extends Canard implements CapaciteSpeciale {
 	private static final int NOMBRE_ATTAQUES_SPECIALE = 3;
 
 	public CanardVent(String pNom, double pPointsDeVie, int pPointsAttaque) {
-		super(pNom, pPointsDeVie, pPointsAttaque, TypeCanard.VENT);
+		super(pNom, pPointsDeVie, pPointsAttaque, TypeCanard.VENT, 50);
 	}
 
 	@Override
 	public void attaquerSpeciale(Canard pAutreCanard) {
 		for (int i = 0 ; i < NOMBRE_ATTAQUES_SPECIALE ; i++) {
-			attaquer(pAutreCanard);
+			attaquer(pAutreCanard, TypeAttaque.NORMALE);
 		}
 	}
 

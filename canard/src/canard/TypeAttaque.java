@@ -1,34 +1,20 @@
 package canard;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public enum TypeAttaque {
-	NORMALE("Normale"),
+	NORMALE("Normale", 5),
 	
-	SPECIALE("Spéciale");
-	
-	public static final Map<String, TypeAttaque> NOMS = new HashMap();
-	
-	static {
-		for (TypeAttaque type : values()) {
-			NOMS.put(type.nom, type);
-		}
-	}
+	SPECIALE("Spéciale", 15);
 	
 	private String nom;
 	
-	private TypeAttaque(String pNom) {
+	private int cout;
+	
+	private TypeAttaque(String pNom, int pCout) {
 		nom = pNom;
+		cout = pCout;
 	}
 	
-	public static TypeAttaque fromString(String pNom) {
-
-		TypeAttaque typeAttaque = NOMS.get(pNom);
-		
-		if (typeAttaque != null) {
-			return typeAttaque;
-		}
-		throw new IllegalArgumentException(pNom + " ne fait pas parti de l'énumération");
+	public int getCout() {
+		return cout;
 	}
 }
