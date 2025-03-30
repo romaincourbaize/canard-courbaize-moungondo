@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/canard/src/canard/Canard.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/canard/src/canard/CanardEau.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/canard/src/canard/CanardFeu.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/canard/src/canard/CanardGlace.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/canard/src/canard/CanardVent.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/canard/src/canard/TypeAttaque.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/canard/src/canard/etat/EffetEtat.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/canard/src/ihm/CombatManager.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/canard/src/ihm/StartManager.java" charset="windows-1252" />
+  </component>
+</project>
