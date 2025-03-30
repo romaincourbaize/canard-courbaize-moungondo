@@ -95,9 +95,7 @@ public abstract class Canard implements CapaciteSpeciale {
 	public void ajouterEffet(EffetEtat pEffet) {
 		effets.add(pEffet);
 	}
-	
-	public abstract String getCaracteristiques();
-	
+
 	@Override
 	public String toString() {
 		return "Nom : " + getNom() + "\n" + "Nombre de points de vie : " + getPointsDeVie();
@@ -127,7 +125,5 @@ public abstract class Canard implements CapaciteSpeciale {
 		return effets;
 	}
 
-	public void setEffets(List<EffetEtat> pEffets) {
-		effets = pEffets;
-	}
+
 }

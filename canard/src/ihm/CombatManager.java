@@ -76,9 +76,9 @@ public class CombatManager {
     
     private void afficherStatuts(Canard canard1, Canard canard2) {
         System.out.println("\nStatut :");
-        System.out.println(canard1.getCaracteristiques());
+        System.out.println(canard1);
         afficherEffets(canard1);
-        System.out.println(canard2.getCaracteristiques());
+        System.out.println(canard2);
         afficherEffets(canard2);
     }
     

@@ -14,7 +14,7 @@ public class CanardGlace extends Canard implements CapaciteSpeciale {
 	}
 
 	@Override
-	public String getCaracteristiques() {
+	public String toString() {
 		String s = "Nom : " + getNom() + "\n";
 		s += "Nombre de points de vie : " + getPointsDeVie() + "\n";
 		s += "Nombre de dégat : " + getPointsAttaque() + "\n";
